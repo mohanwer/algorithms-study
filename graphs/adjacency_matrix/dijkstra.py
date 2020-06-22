@@ -1,5 +1,5 @@
 # https://www.geeksforgeeks.org/python-program-for-dijkstras-shortest-path-algorithm-greedy-algo-7/
-
+# O(V^2)
 
 class Graph():
 
