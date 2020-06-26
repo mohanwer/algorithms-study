@@ -3,7 +3,7 @@
 from typing import List
 
 def suggestedProducts(products: List[str], searchWord: str) -> List[List[str]]:
-    products = sorted(products)
+    products.sort()
 
     def search(words, item):
         left = 0
@@ -11,7 +11,7 @@ def suggestedProducts(products: List[str], searchWord: str) -> List[List[str]]:
         answer = []
         while left <= right:
             midpoint = left + (right - left)
-            current: str = words[midpoint]
+            current = words[midpoint]
             if current.startswith(item):
                 return window(words, midpoint, item)
             elif current > item:
@@ -40,5 +40,5 @@ def suggestedProducts(products: List[str], searchWord: str) -> List[List[str]]:
 
     return answer
 
-products = ["havana"]
-z = suggestedProducts(products, "tatiana")
+products = ["mobile","mouse","moneypot","monitor","mousepad"]
+z = suggestedProducts(products, "mouse")
