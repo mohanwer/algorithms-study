@@ -1,7 +1,8 @@
+# https://leetcode.com/problems/kth-largest-element-in-an-array/
+from typing import List
 import random
 
-def quickselect(items, index):
-
+def findKthLargest(nums: List[int], k: int) -> int:
     def select(lst, l, r, index):
         if r == l:
             return lst[l]
@@ -10,7 +11,7 @@ def quickselect(items, index):
         lst[pv], lst[l] = lst[l], lst[pv]
         i = l
         for j in range(l + 1, r + 1):
-            if lst[j] > lst[l]:
+            if lst[j] < lst[l]:
                 i += 1
                 lst[i], lst[j] = lst[j], lst[i]
 
@@ -18,12 +19,10 @@ def quickselect(items, index):
         if index == i:
             return lst[i]
         elif index < i:
-            return select(lst, l, i -1, index)
+            return select(lst, l, i - 1, index)
         else:
             return select(lst, i + 1, r, index)
 
-    if items is None or len(items) < 1:
+    if nums is None or len(nums) < 1:
         return None
-    return select(items, 0, len(items) - 1, index)
-
-result = quickselect([2, 4, 5, 7, 899, 54, 32], 0)
+    return select(nums, 0, len(nums) - 1, len(nums) - k)
