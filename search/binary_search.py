@@ -25,6 +25,3 @@ def binary_search_recursion(sorted_collection, item, left, right):
         return binary_search_recursion(sorted_collection, item, left, midpoint - 1)
     else:
         return binary_search_recursion(sorted_collection, item, midpoint + 1, right)
-
-
-a = binary_search([5], 5)

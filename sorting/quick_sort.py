@@ -14,7 +14,7 @@ def quicksort(items):
                 i+=1
                 lst[i], lst[j] = lst[j], lst[i]
         lst[l], lst[i] = lst[i], lst[l]
-        sort(lst, l, i -1 )
+        sort(lst, l, i - 1 )
         sort(lst, i + 1, r)
 
     if items is None or len(items) < 2:
@@ -23,4 +23,3 @@ def quicksort(items):
 
 arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 quicksort(arr)
-print(arr)
