@@ -1,6 +1,8 @@
 # https://leetcode.com/problems/top-k-frequent-words/
 
 from typing import List
+from collections import Counter
+import random
 
 class Word:
 
@@ -35,6 +37,15 @@ def topKFrequent(words: List[str], k: int) -> List[str]:
     word_list = sorted(word_list, key=lambda x: (-x[0], x[1]))
     return word_list[:k]
 
+def topKFrequent3(words: List[str], k: int):
+    counts = Counter(words)
+    words_c = []
+    for i, v in counts.items():
+        word = Word(i, v)
+        words_c.append(word)
+    words_c.sort(reverse=True)
+    ans = [w.word for w in words_c]
+    return ans[:k]
 
 question = ["the", "day", "is", "sunny", "the", "the", "the", "sunny", "is", "is"]
-z = topKFrequent2(question, 4)
+z = topKFrequent3(question, 4)
