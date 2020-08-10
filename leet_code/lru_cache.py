@@ -67,38 +67,6 @@ class LRUCache:
             node.value = value
             self.__move_to_head(node)
 
-class LRUCacheDict:
-
-    def __init__(self, capacity: int):
-        self.capacity = capacity
-        self.size = 0
-        self.cache = OrderedDict()
-
-    def get(self, key: int) -> int:
-        v = self.cache.get(key, None)
-        if v is None:
-            return -1
-        self.size += 1
-        self.cache.move_to_end(key)
-        return v
-
-    def remove(self, key: int) -> int:
-        del self.cache[key]
-        self.size -= 1
-
-    def put(self, key, value):
-        v = self.cache.get(key, None)
-        if v is None:
-            self.cache[key] = value
-            self.size += 1
-            if self.size > self.capacity:
-                self.cache.popitem(last=False)
-        else:
-            self.cache[key] = value
-        self.cache.move_to_end(key)
-
-
-
 g = LRUCache(2)
 g.put(1, 1)
 g.put(2, 2)
