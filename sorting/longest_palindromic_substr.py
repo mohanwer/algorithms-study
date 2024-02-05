@@ -7,7 +7,7 @@ def longestPalindrome(s: str) -> str:
     def scan(l, r):
         nonlocal s, biggest
         while 0 <= l and r < len(s) and s[l] == s[r]:
-            l -= 1;
+            l -= 1
             r += 1
         biggest = max(s[l+1:r], biggest, key=len)
 

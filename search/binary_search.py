@@ -11,7 +11,10 @@ def binary_search(sorted_collection, item):
             right = midpoint - 1
         else:
             left = midpoint + 1
-    return None
+
+    # returns here if not found and returns the left most position
+    # where insertion would have happened
+    return left
 
 
 def binary_search_recursion(sorted_collection, item, left, right):
