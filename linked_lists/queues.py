@@ -2,10 +2,10 @@ from typing import Optional
 
 
 class Node:
+
     def __init__(self, val: int) -> None:
         self.val = val
         self.next = None
-        self.prev = None
 
 
 class Queue:
@@ -30,7 +30,7 @@ class Queue:
         if self.tail == node:
             self.tail = self.tail.next
 
-        return node
+        return node.val
 
 
 q = Queue()
@@ -39,3 +39,9 @@ q.add(2)
 assert q.pop_head() == 1
 assert q.pop_head() == 2
 assert not q.tail
+assert not q.pop_head()
+
+q.add(1)
+assert q.tail.val == 1
+q.add(3)
+assert q.tail.val == 3
