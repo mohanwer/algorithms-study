@@ -3,7 +3,7 @@ def binary_search(sorted_collection, item):
     right = len(sorted_collection) - 1
 
     while left <= right:
-        midpoint = left + (right - left)
+        midpoint = (left + right) // 2
         current_item = sorted_collection[midpoint]
         if current_item == item:
             return midpoint

@@ -2,6 +2,7 @@
 
 from typing import List
 
+
 def subarray_size_key(arr: List[int], k: int, threshold: int) -> int:
         n = len(arr)
         for i in range(1, n):
